@@ -18,6 +18,14 @@ def login():
     return jsonify({"message": "Login berhasil", "access_token": access_token}), 200
 
 
+# Logout endpoint
+@app.route("/logout", methods=["POST"])
+@jwt_required()
+def logout():
+    # Perform any additional logout operations if needed
+    return jsonify({"message": "Logout berhasil"}), 200
+
+
 @app.route("/profile", methods=["GET"])
 @jwt_required()
 def profile():
